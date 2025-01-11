@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="navbar-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="theme-loader.js"></script>
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <h1>Admin Dashboard</h1>
+            <div class="header-actions">
+                <a href="settings.html" class="settings-btn"><i class="fas fa-cog"></i> Settings</a>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </header>
+        
+        <div class="dashboard-tabs">
+            <button class="tab-btn active" data-tab="projects">Projects</button>
+            <button class="tab-btn" data-tab="blog">Blog Posts</button>
+        </div>
+
+        <div class="dashboard-content">
+            <!-- Projects Section -->
+            <div class="tab-content active" id="projects-content">
+                <div class="add-project-section">
+                    <h2>Add New Project</h2>
+                    <form id="addProjectForm">
+                        <div class="form-group">
+                            <label for="projectTitle">Project Title:</label>
+                            <input type="text" id="projectTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectDescription">Description:</label>
+                            <textarea id="projectDescription" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectImage">Image URL:</label>
+                            <input type="url" id="projectImage" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="projectType">Type:</label>
+                            <select id="projectType" required>
+                                <option value="game">Game Development</option>
+                                <option value="web">Web Development</option>
+                            </select>
+                        </div>
+                        <button type="submit">Add Project</button>
+                    </form>
+                </div>
+
+                <div class="manage-projects-section">
+                    <h2>Manage Projects</h2>
+                    <div id="projectsList" class="projects-list">
+                        <!-- Projects will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Posts Section -->
+            <div class="tab-content" id="blog-content">
+                <div class="add-blog-section">
+                    <h2>Add New Blog Post</h2>
+                    <form id="addBlogForm">
+                        <div class="form-group">
+                            <label for="blogTitle">Title:</label>
+                            <input type="text" id="blogTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="blogCategory">Category:</label>
+                            <select id="blogCategory" required>
+                                <option value="gamedev">Game Development</option>
+                                <option value="webdev">Web Development</option>
+                                <option value="tutorial">Tutorial</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="blogImage">Featured Image URL:</label>
+                            <input type="url" id="blogImage" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="blogContent">Content:</label>
+                            <textarea id="blogContent" rows="10" required></textarea>
+                        </div>
+                        <button type="submit">Publish Post</button>
+                    </form>
+                </div>
+
+                <div class="manage-blogs-section">
+                    <h2>Manage Blog Posts</h2>
+                    <div id="blogsList" class="blogs-list">
+                        <!-- Blog posts will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="dashboard.js"></script>
+    <script src="navbar.js"></script>
+</body>
+</html>

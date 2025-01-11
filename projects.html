@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Jazim Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="navbar-styles.css">
+    <script src="theme-loader.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="logo">Jazim</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            <a href="admin.html" class="admin-link">Admin</a>
+        </div>
+        <div class="auth-section">
+            <button id="authButton" class="btn btn-outline" onclick="window.location.href='signin.html'">
+                <i class="fas fa-user"></i> Sign In
+            </button>
+            <div id="userMenu" class="user-menu" style="display: none;">
+                <img src="" alt="" class="user-image" onclick="toggleUserDropdown()">
+                <div class="user-dropdown">
+                    <div class="user-info">
+                        <img src="" alt="" class="user-image-large">
+                        <div class="user-details">
+                            <span class="user-name"></span>
+                            <span class="user-email"></span>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <button onclick="signOut()"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">My Projects</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Explore my latest work in game development and web applications</p>
+        </div>
+    </section>
+
+    <section class="projects-page">
+        <div class="container">
+            <div class="projects-intro" data-aos="fade-up">
+                <p class="lead-text">From immersive games to powerful web applications, here's a showcase of my best work. Each project represents a unique challenge and innovative solution.</p>
+                
+                <div class="project-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-header" data-aos="fade-up">
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="game">Games</button>
+                    <button class="filter-btn" data-filter="web">Web Apps</button>
+                    <button class="filter-btn" data-filter="mobile">Mobile Apps</button>
+                </div>
+                
+                <div class="project-search">
+                    <input type="text" id="projectSearch" placeholder="Search projects...">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+
+            <div class="project-grid" id="projectContainer">
+                <!-- Sample Project Items -->
+                <div class="project-item" data-category="game" data-aos="fade-up">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Adventure Quest">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                                <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">Unity</span>
+                            <span class="tag">C#</span>
+                            <span class="tag">3D</span>
+                        </div>
+                        <h3>Adventure Quest</h3>
+                        <p>A thrilling 3D adventure game with dynamic gameplay and stunning visuals.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar"></i> 2025</span>
+                            <span><i class="fas fa-star"></i> Featured</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-item" data-category="web" data-aos="fade-up">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400" alt="E-Commerce Platform">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                                <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                        <h3>E-Commerce Platform</h3>
+                        <p>A modern e-commerce solution with real-time inventory and payment processing.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar"></i> 2025</span>
+                            <span><i class="fas fa-star"></i> Featured</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-item" data-category="mobile" data-aos="fade-up">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/600x400" alt="Fitness Tracker">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                                <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tags">
+                            <span class="tag">React Native</span>
+                            <span class="tag">Firebase</span>
+                            <span class="tag">Mobile</span>
+                        </div>
+                        <h3>Fitness Tracker</h3>
+                        <p>A comprehensive mobile app for tracking workouts and maintaining health goals.</p>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar"></i> 2024</span>
+                            <span><i class="fas fa-download"></i> 10K+</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="load-more" data-aos="fade-up">
+                <button class="btn btn-outline" id="loadMoreBtn">Load More Projects</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-cta" data-aos="fade-up">
+        <div class="container">
+            <h2>Have a Project in Mind?</h2>
+            <p>Let's collaborate and bring your ideas to life!</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn">Start a Project</a>
+                <a href="#" class="btn btn-outline">View My Process</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Jazim</h3>
+                <p>Creating exceptional digital experiences through game and web development.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> jazimnoor919@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                <p><i class="fas fa-map-marker-alt"></i> New York, USA</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Jazim. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+    <script src="script.js"></script>
+    <script src="navbar.js"></script>
+</body>
+</html>

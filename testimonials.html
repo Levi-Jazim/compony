@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - Jazim Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="navbar-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Sign-In API -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID">
+</head>
+<body>
+    <nav>
+        <div class="logo">Jazim</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+            <a href="testimonials.html" class="active">Testimonials</a>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            <a href="admin.html" class="admin-link">Admin</a>
+        </div>
+        <div class="auth-section">
+            <button id="authButton" class="btn btn-outline" onclick="window.location.href='signin.html'">
+                <i class="fas fa-user"></i> Sign In
+            </button>
+            <div id="userMenu" class="user-menu" style="display: none;">
+                <img src="" alt="" class="user-image" onclick="toggleUserDropdown()">
+                <div class="user-dropdown">
+                    <div class="user-info">
+                        <img src="" alt="" class="user-image-large">
+                        <div class="user-details">
+                            <span class="user-name"></span>
+                            <span class="user-email"></span>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <button onclick="signOut()"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="testimonials-page">
+        <div class="container">
+            <h1 class="section-title">Client Testimonials</h1>
+            
+            <!-- Testimonials Grid -->
+            <div class="testimonials-grid" id="testimonialsGrid">
+                <!-- Testimonials will be loaded here -->
+            </div>
+
+            <!-- Add Testimonial Form -->
+            <div class="add-testimonial-section" id="addTestimonialSection">
+                <h2>Share Your Experience</h2>
+                <form id="testimonialForm" class="testimonial-form">
+                    <div class="form-group">
+                        <label for="testimonialText">Your Testimonial</label>
+                        <textarea id="testimonialText" rows="4" required placeholder="Share your experience working with me..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="rating">Rating</label>
+                        <div class="rating-input">
+                            <i class="fas fa-star" data-rating="1"></i>
+                            <i class="fas fa-star" data-rating="2"></i>
+                            <i class="fas fa-star" data-rating="3"></i>
+                            <i class="fas fa-star" data-rating="4"></i>
+                            <i class="fas fa-star" data-rating="5"></i>
+                        </div>
+                        <input type="hidden" id="ratingValue" value="5">
+                    </div>
+                    <button type="submit" class="btn">Submit Testimonial</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <div class="auth-prompt" id="authPrompt" style="display: none;">
+        <div class="auth-prompt-content">
+            <h2>Sign In Required</h2>
+            <p>Please sign in to view and add testimonials</p>
+            <div class="auth-prompt-buttons">
+                <button onclick="window.location.href='signin.html'" class="btn">
+                    <i class="fas fa-sign-in-alt"></i> Sign In
+                </button>
+                <button onclick="window.location.href='signin.html#signup'" class="btn btn-outline">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="testimonials.js"></script>
+    <script src="navbar.js"></script>
+</body>
+</html>

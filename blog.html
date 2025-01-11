@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Jazim Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="navbar-styles.css">
+    <script src="theme-loader.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="logo">Jazim</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="blog.html" class="active">Blog</a>
+            <a href="contact.html">Contact</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            <a href="admin.html" class="admin-link">Admin</a>
+        </div>
+        <div class="auth-section">
+            <button id="authButton" class="btn btn-outline" onclick="window.location.href='signin.html'">
+                <i class="fas fa-user"></i> Sign In
+            </button>
+            <div id="userMenu" class="user-menu" style="display: none;">
+                <img src="" alt="" class="user-image" onclick="toggleUserDropdown()">
+                <div class="user-dropdown">
+                    <div class="user-info">
+                        <img src="" alt="" class="user-image-large">
+                        <div class="user-details">
+                            <span class="user-name"></span>
+                            <span class="user-email"></span>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <button onclick="signOut()"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="blog-page">
+        <div class="blog-header">
+            <h1>My Blog</h1>
+            <p>Thoughts, tutorials, and insights about game development and web technologies</p>
+        </div>
+
+        <div class="blog-categories">
+            <button class="category-btn active" data-category="all">All Posts</button>
+            <button class="category-btn" data-category="gamedev">Game Dev</button>
+            <button class="category-btn" data-category="webdev">Web Dev</button>
+            <button class="category-btn" data-category="tutorial">Tutorials</button>
+        </div>
+
+        <div class="blog-search">
+            <input type="text" id="searchBlog" placeholder="Search blog posts...">
+        </div>
+
+        <div class="blog-grid" id="blogContainer">
+            <!-- Blog posts will be loaded dynamically -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Jazim. All rights reserved.</p>
+    </footer>
+
+    <script src="blog.js"></script>
+    <script src="navbar.js"></script>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Jazim Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="navbar-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .auth-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .auth-btn {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .auth-btn:hover {
+            background: #0056b3;
+        }
+        .toggle-form {
+            text-align: center;
+            margin-top: 15px;
+        }
+        .toggle-form a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+        .success-message {
+            color: green;
+            margin-top: 10px;
+            display: none;
+        }
+        .password-requirements {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 5px;
+        }
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: none;
+            cursor: pointer;
+            color: #666;
+        }
+        .password-field {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <i class="fas fa-code"></i> Jazim
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="auth-section"></div>
+    </nav>
+
+    <div class="auth-container">
+        <div id="signinForm">
+            <h2>Sign In</h2>
+            <form onsubmit="return handleSignIn(event)">
+                <div class="form-group">
+                    <label for="signinEmail">Email</label>
+                    <input type="email" id="signinEmail" required>
+                </div>
+                <div class="form-group">
+                    <div class="password-field">
+                        <label for="signinPassword">Password</label>
+                        <input type="password" id="signinPassword" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('signinPassword')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <button type="submit" class="auth-btn">Sign In</button>
+                <div class="toggle-form">
+                    <p>Don't have an account? <a href="#" onclick="toggleForms()">Sign Up</a></p>
+                </div>
+                <p class="error-message" id="signinError"></p>
+            </form>
+        </div>
+
+        <div id="signupForm" style="display: none;">
+            <h2>Create Account</h2>
+            <form onsubmit="return handleSignUp(event)">
+                <div class="form-group">
+                    <label for="signupName">Full Name</label>
+                    <input type="text" id="signupName" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <div class="password-field">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" required minlength="6">
+                        <button type="button" class="password-toggle" onclick="togglePassword('signupPassword')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <p class="password-requirements">Password must be at least 6 characters long</p>
+                </div>
+                <button type="submit" class="auth-btn">Sign Up</button>
+                <div class="toggle-form">
+                    <p>Already have an account? <a href="#" onclick="toggleForms()">Sign In</a></p>
+                </div>
+                <p class="error-message" id="signupError"></p>
+                <p class="success-message" id="signupSuccess"></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="navbar.js"></script>
+    <script>
+        // Toggle between sign in and sign up forms
+        function toggleForms() {
+            const signinForm = document.getElementById('signinForm');
+            const signupForm = document.getElementById('signupForm');
+            
+            if (signinForm.style.display === 'none') {
+                signinForm.style.display = 'block';
+                signupForm.style.display = 'none';
+            } else {
+                signinForm.style.display = 'none';
+                signupForm.style.display = 'block';
+            }
+        }
+
+        // Toggle password visibility
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const icon = input.nextElementSibling.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        }
+
+        // Handle sign up
+        function handleSignUp(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            
+            // Get existing users or initialize empty array
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            
+            // Check if email already exists
+            if (users.some(user => user.email === email)) {
+                showError('signupError', 'Email already registered');
+                return false;
+            }
+            
+            // Create new user
+            const newUser = {
+                name: name,
+                email: email,
+                password: password,
+                avatar: `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=random`
+            };
+            
+            // Add to users array
+            users.push(newUser);
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Show success message
+            document.getElementById('signupSuccess').textContent = 'Account created successfully! You can now sign in.';
+            document.getElementById('signupSuccess').style.display = 'block';
+            
+            // Clear form
+            event.target.reset();
+            
+            // Switch to sign in form after 2 seconds
+            setTimeout(() => {
+                toggleForms();
+            }, 2000);
+            
+            return false;
+        }
+
+        // Handle sign in
+        function handleSignIn(event) {
+            event.preventDefault();
+            
+            const email = document.getElementById('signinEmail').value;
+            const password = document.getElementById('signinPassword').value;
+            
+            // Get users from localStorage
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            
+            // Find user
+            const user = users.find(u => u.email === email && u.password === password);
+            
+            if (user) {
+                // Store current user
+                const currentUser = {
+                    name: user.name,
+                    email: user.email,
+                    avatar: user.avatar,
+                    isLoggedIn: true
+                };
+                
+                localStorage.setItem('currentUser', JSON.stringify(currentUser));
+                window.location.href = 'index.html';
+            } else {
+                showError('signinError', 'Invalid email or password');
+            }
+            
+            return false;
+        }
+
+        // Show error message
+        function showError(elementId, message) {
+            const error = document.getElementById(elementId);
+            error.textContent = message;
+            error.style.display = 'block';
+            
+            setTimeout(() => {
+                error.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

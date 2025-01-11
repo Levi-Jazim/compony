@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Jazim Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="navbar-styles.css">
+    <script src="theme-loader.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="logo">Jazim</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="blog.html">Blog</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="contact.html" class="active">Contact</a>
+            <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+            <a href="admin.html" class="admin-link">Admin</a>
+        </div>
+        <div class="auth-section">
+            <button id="authButton" class="btn btn-outline" onclick="window.location.href='signin.html'">
+                <i class="fas fa-user"></i> Sign In
+            </button>
+            <div id="userMenu" class="user-menu" style="display: none;">
+                <img src="" alt="" class="user-image" onclick="toggleUserDropdown()">
+                <div class="user-dropdown">
+                    <div class="user-info">
+                        <img src="" alt="" class="user-image-large">
+                        <div class="user-details">
+                            <span class="user-name"></span>
+                            <span class="user-email"></span>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <button onclick="signOut()"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 data-aos="fade-up">Let's Connect</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Have a project in mind? Let's create something amazing together.</p>
+        </div>
+    </section>
+
+    <section class="contact-page">
+        <div class="contact-container">
+            <div class="contact-info-section" data-aos="fade-right">
+                <div class="contact-intro">
+                    <h2>Get in Touch</h2>
+                    <p class="lead-text">I'm always excited to connect with clients, fellow developers, and creative minds. Whether you have a project in mind or just want to say hello, I'd love to hear from you!</p>
+                    
+                    <div class="availability-status">
+                        <span class="status-indicator available"></span>
+                        <p>Currently available for freelance projects</p>
+                    </div>
+                </div>
+                
+                <div class="contact-details">
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>jazimnoor919@gmail.com</p>
+                            <small>Response time: within 24 hours</small>
+                        </div>
+                    </div>
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>New York, USA</p>
+                            <small>Available for remote work worldwide</small>
+                        </div>
+                    </div>
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h3>Working Hours</h3>
+                            <p>Mon - Fri: 9:00 AM - 6:00 PM EST</p>
+                            <small>Flexible hours for international clients</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-connect">
+                    <h3>Connect With Me</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <h3>Frequently Asked Questions</h3>
+                    <div class="faq-item">
+                        <h4>What types of projects do you take on?</h4>
+                        <p>I specialize in game development and web applications, including custom web solutions, e-commerce platforms, and interactive games.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>What are your rates?</h4>
+                        <p>Rates vary depending on project scope and requirements. Let's discuss your project to provide an accurate quote.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-section" data-aos="fade-left">
+                <div class="form-container">
+                    <h2>Send a Message</h2>
+                    <p>Fill out the form below, and I'll get back to you as soon as possible.</p>
+                    
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" placeholder="What's this about?" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="project-type">Project Type</label>
+                            <select id="project-type" required>
+                                <option value="">Select project type</option>
+                                <option value="game">Game Development</option>
+                                <option value="web">Web Development</option>
+                                <option value="mobile">Mobile App</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" required>
+                                <span>I agree to the privacy policy and terms of service</span>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-large">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-cta" data-aos="fade-up">
+        <div class="container">
+            <h2>Need a Quick Response?</h2>
+            <p>For urgent inquiries, you can also reach me directly through:</p>
+            <div class="quick-contact-options">
+                <a href="tel:+1234567890" class="btn btn-outline"><i class="fas fa-phone"></i> Schedule a Call</a>
+                <a href="https://calendly.com/yourusername" class="btn btn-outline"><i class="fas fa-calendar"></i> Book a Meeting</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Jazim</h3>
+                <p>Creating exceptional digital experiences through game and web development.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> jazimnoor919@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                <p><i class="fas fa-map-marker-alt"></i> New York, USA</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Jazim. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+    <script src="contact.js"></script>
+    <script src="navbar.js"></script>
+</body>
+</html>

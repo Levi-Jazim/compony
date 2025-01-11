@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jazim - Game & Web Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="navbar-styles.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Sign-In API -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="YOUR_GOOGLE_CLIENT_ID">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo">
+            <i class="fas fa-code"></i>
+            Jazim
+        </a>
+        <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links">
+            <a href="index.html" class="active"><i class="fas fa-home"></i>Home</a>
+            <a href="projects.html"><i class="fas fa-project-diagram"></i>Projects</a>
+            <a href="blog.html"><i class="fas fa-blog"></i>Blog</a>
+            <a href="contact.html"><i class="fas fa-envelope"></i>Contact</a>
+            <a href="testimonials.html"><i class="fas fa-comments"></i>Testimonials</a>
+            <a href="settings.html"><i class="fas fa-cog"></i>Settings</a>
+            <a href="admin.html" class="admin-link"><i class="fas fa-user-shield"></i>Admin</a>
+        </div>
+        <div class="auth-section">
+            <button id="authButton" class="btn btn-outline" onclick="window.location.href='signin.html'">
+                <i class="fas fa-user"></i> Sign In
+            </button>
+            <div id="userMenu" class="user-menu" style="display: none;">
+                <img src="" alt="" class="user-image" onclick="toggleUserDropdown()">
+                <div class="user-dropdown">
+                    <div class="user-info">
+                        <img src="" alt="" class="user-image-large">
+                        <div class="user-details">
+                            <span class="user-name"></span>
+                            <span class="user-email"></span>
+                        </div>
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                    <button onclick="signOut()"><i class="fas fa-sign-out-alt"></i> Sign Out</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Welcome to My Portfolio</h1>
+                <h2>Game & Web Developer</h2>
+                <p class="hero-tagline">Crafting immersive games and stunning websites that push the boundaries of digital experiences</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="projects.html" class="btn">View Projects</a>
+                    <a href="contact.html" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span class="mouse"></span>
+                <p>Scroll to explore</p>
+            </div>
+        </section>
+
+        <section class="featured-work">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Featured Work</h2>
+                <div class="featured-grid">
+                    <div class="featured-item" data-aos="fade-right">
+                        <img src="https://via.placeholder.com/600x400" alt="Featured Project 1">
+                        <div class="featured-content">
+                            <h3>Adventure Quest Game</h3>
+                            <p>A thrilling 3D adventure game built with Unity, featuring dynamic gameplay and stunning visuals.</p>
+                            <a href="#" class="btn btn-small">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="featured-item" data-aos="fade-left">
+                        <img src="https://via.placeholder.com/600x400" alt="Featured Project 2">
+                        <div class="featured-content">
+                            <h3>E-Commerce Platform</h3>
+                            <p>A modern e-commerce solution built with React and Node.js, handling thousands of daily transactions.</p>
+                            <a href="#" class="btn btn-small">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" data-aos="fade-up">
+            <div class="about-content">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p class="lead-text">I'm a passionate developer with a unique blend of game development and web expertise, creating digital experiences that leave lasting impressions.</p>
+                        <p>With over 5 years of experience in both gaming and web industries, I've developed a deep understanding of what makes digital experiences truly engaging. My approach combines technical excellence with creative innovation to deliver solutions that exceed expectations.</p>
+                        <p>Whether it's crafting immersive game worlds or building sophisticated web applications, I bring the same level of dedication and attention to detail to every project.</p>
+                        <div class="about-cta">
+                            <a href="#" class="btn">Download Resume</a>
+                            <a href="#" class="btn btn-outline">View LinkedIn</a>
+                        </div>
+                    </div>
+                    <div class="skills-container">
+                        <div class="skill-category">
+                            <h3><i class="fas fa-gamepad"></i> Game Development</h3>
+                            <ul>
+                                <li><span class="skill-name">Unity</span><span class="skill-level expert">Expert</span></li>
+                                <li><span class="skill-name">Unreal Engine</span><span class="skill-level advanced">Advanced</span></li>
+                                <li><span class="skill-name">C++</span><span class="skill-level advanced">Advanced</span></li>
+                                <li><span class="skill-name">Game Design</span><span class="skill-level expert">Expert</span></li>
+                                <li><span class="skill-name">3D Modeling</span><span class="skill-level intermediate">Intermediate</span></li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h3><i class="fas fa-code"></i> Web Development</h3>
+                            <ul>
+                                <li><span class="skill-name">HTML/CSS/JavaScript</span><span class="skill-level expert">Expert</span></li>
+                                <li><span class="skill-name">React.js</span><span class="skill-level expert">Expert</span></li>
+                                <li><span class="skill-name">Node.js</span><span class="skill-level advanced">Advanced</span></li>
+                                <li><span class="skill-name">UI/UX Design</span><span class="skill-level advanced">Advanced</span></li>
+                                <li><span class="skill-name">Database Design</span><span class="skill-level advanced">Advanced</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title">Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>Game Development</h3>
+                        <p>From concept to launch, I create engaging games that captivate players and deliver memorable experiences.</p>
+                        <ul class="service-list">
+                            <li>3D Game Development</li>
+                            <li>Mobile Games</li>
+                            <li>Game Design</li>
+                            <li>Unity/Unreal Development</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Web Development</h3>
+                        <p>Building responsive, user-friendly websites and web applications with modern technologies.</p>
+                        <ul class="service-list">
+                            <li>Frontend Development</li>
+                            <li>Backend Development</li>
+                            <li>E-commerce Solutions</li>
+                            <li>API Development</li>
+                        </ul>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Mobile Development</h3>
+                        <p>Creating cross-platform mobile applications that provide seamless user experiences.</p>
+                        <ul class="service-list">
+                            <li>iOS Development</li>
+                            <li>Android Development</li>
+                            <li>React Native Apps</li>
+                            <li>App Optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonials" data-aos="fade-up">
+            <div class="container">
+                <h2 class="section-title">What Clients Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Jazim's expertise in both game and web development helped us create an amazing interactive experience for our users."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/60x60" alt="Client 1">
+                            <div class="author-info">
+                                <h4>John Smith</h4>
+                                <p>CEO, GameTech Studios</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"The web application Jazim developed for us exceeded our expectations. Professional, responsive, and highly skilled!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="https://via.placeholder.com/60x60" alt="Client 2">
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Marketing Director, TechCorp</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section" data-aos="fade-up">
+            <div class="container">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Let's work together to bring your ideas to life!</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-large">Get in Touch</a>
+                    <a href="projects.html" class="btn btn-outline btn-large">View More Work</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Jazim</h3>
+                <p>Creating exceptional digital experiences through game and web development.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> hello@jazim.dev</p>
+                <p><i class="fas fa-phone"></i> +1 234 567 890</p>
+                <p><i class="fas fa-map-marker-alt"></i> New York, USA</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Jazim. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+    <script src="navigation.js"></script>
+    <script src="navbar.js"></script>
+</body>
+</html>
